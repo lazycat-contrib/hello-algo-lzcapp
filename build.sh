@@ -27,6 +27,10 @@ cp -r overrides build/overrides
 cp -r docs build/docs
 mkdocs build -f mkdocs.yml
 for lang in zh-hant en ja ru; do
+  if [ ! -d "$lang/docs" ]; then
+    echo "==> skip $lang (not present in this version)"
+    continue
+  fi
   mkdir -p "build/$lang"
   cp -r "$lang/docs" "build/$lang/docs"
   mkdocs build -f "$lang/mkdocs.yml"
