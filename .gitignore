@@ -1,0 +1,14 @@
+# Build artifacts
+site/
+build/
+.upstream/
+dist/
+*.lpk
+
+# Local tooling
+.venv-build/
+__pycache__/
+
+# Editors
+.DS_Store
+*.swp

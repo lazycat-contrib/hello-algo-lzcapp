@@ -1,0 +1,30 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/hello-algo.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: git
+    image: ""
+
+build:
+  run_buildscript: true
+
+images: []
+
+stores:
+  official:
+    # Official store publication is intentionally disabled; publish only to MiaoMiao Store.
+    enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Hello 算法
+    summary: 动画图解、一键运行的数据结构与算法教程
